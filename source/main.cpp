@@ -103,7 +103,7 @@ void __attribute__((weak)) __appInit(void)
         fatalThrow(rc);
 
     // Attach Work Buffer
-    rc = hiddbgAttachHdlsWorkBuffer();
+    rc = hiddbgAttachHdlsWorkBuffer(&sessionId, workmem, workmem_size);
     if (R_FAILED(rc))
         fatalThrow(rc);
 
@@ -115,7 +115,7 @@ void __attribute__((weak)) userAppExit(void);
 void __attribute__((weak)) __appExit(void)
 {
     // Cleanup default services.
-    hiddbgReleaseHdlsWorkBuffer();
+    hiddbgReleaseHdlsWorkBuffer(sessionId);
     //timeExit();
     viExit();
     hiddbgExit();

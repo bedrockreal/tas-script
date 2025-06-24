@@ -7,6 +7,10 @@
 
 #include "format.hpp"
 
+extern HiddbgHdlsSessionId sessionId;
+extern u8 *workmem;
+extern size_t workmem_size;
+
 typedef struct
 {
     HiddbgHdlsHandle handle;
